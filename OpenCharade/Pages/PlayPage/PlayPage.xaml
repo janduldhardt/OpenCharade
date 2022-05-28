@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModel="clr-namespace:OpenCharade.ViewModels"
+             x:Class="OpenCharade.Views.PlayPage.PlayPage"
+             x:DataType="viewModel:PlayViewModel"
+             Title="{Binding Title}"
+             >
+    <Grid RowDefinitions="100,*,50" ColumnDefinitions="100,*,100">
+        <Label Grid.Row="0" Grid.ColumnSpan="3" Text="{Binding ElapsedTime}" HorizontalOptions="Center"/>
+
+        <Button Grid.Row="1" Text="False" BackgroundColor="Green" Command="{Binding CorrectCommand}"/>
+        <Frame Grid.Row="1" Grid.Column="1">
+            <Label Text="{Binding CurrentCard.Name}" TextColor="Red" BackgroundColor="Blue"  FontSize="Large" />
+        </Frame>
+        <Button Grid.Row="1" Text="Correct" Command="{Binding CorrectCommand}" BackgroundColor="Green"/>
+        <Button Grid.Row="2" Grid.ColumnSpan="3" Text="Skip" Command="{Binding NextCardCommand}"/>
+    </Grid>
+</ContentPage>
